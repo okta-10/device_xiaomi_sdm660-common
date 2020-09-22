@@ -75,6 +75,10 @@ function blob_fixup() {
     case "${1}" in
 
     product/lib64/libdpmframework.so)
+        "${PATCHELF}" --add-needed "libshim_dpmframework.so" "${2}"
+        ;;
+
+    product/lib64/libdpmframework.so)
         patchelf --add-needed libcutils_shim.so "${2}"
         ;;
 
